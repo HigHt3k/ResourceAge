@@ -1,12 +1,14 @@
 package com;
 
 import com.config.GameConfiguration;
+import com.ecs.System;
 import com.graphics.SceneManager;
 import com.graphics.elements.GameFrame;
 import com.graphics.render.RenderingEngine;
 import com.graphics.render.ScalingEngine;
 import com.input.InputManager;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class Game {
@@ -54,6 +56,12 @@ public class Game {
 
     public static RenderingEngine graphics() {
         return renderingEngine;
+    }
+
+    private static ArrayList<System> systemsList = new ArrayList<>();
+
+    public static ArrayList<System> systems() {
+        return systemsList;
     }
 
     public static void start() {

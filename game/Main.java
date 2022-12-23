@@ -18,6 +18,9 @@ public class Main {
         Game.scene().addScene(new MenuScene("Menu", 0));
         Game.scene().addScene(new GameScene("Main Panel", 1));
 
+        // Add systems
+        Game.systems().add(new GatheringSystem());
+
         // initialize game and set starting scene
         Game.init();
         Game.scene().setCurrentScene(0);

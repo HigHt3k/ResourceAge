@@ -1,5 +1,7 @@
 package com;
 
+import com.ecs.System;
+
 /**
  * Standard Game Thread that updates all components of the Game at the given tickrate
  */
@@ -32,6 +34,9 @@ public class GameLoop extends Thread {
         }
         if(started) {
             Game.input().handle();
+            for(System s : Game.systems()) {
+                s.update();
+            }
             Game.scene().current().update();
             Game.frame().getRenderPanel().repaint();
         }
