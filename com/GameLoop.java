@@ -6,7 +6,7 @@ import com.ecs.System;
  * Standard Game Thread that updates all components of the Game at the given tickrate
  */
 public class GameLoop extends Thread {
-    private static final int DEFAULT_TICK_RATE = (int) (1000.0/144.0);
+    public static final int DEFAULT_TICK_RATE = (int) (1000.0/144.0);
     private boolean paused = true;
     private boolean started = false;
 

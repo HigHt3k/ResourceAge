@@ -3,6 +3,8 @@ package com.graphics.render;
 import com.Game;
 import com.ecs.Entity;
 import com.ecs.component.GraphicsComponent;
+import game.components.Resource;
+import game.components.UnitStack;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -141,6 +143,36 @@ public class RenderingEngine {
                             gc.getFont(),
                             gc.getBounds().x,
                             gc.getBounds().y,
+                            gc.getBounds().width,
+                            gc.getBounds().height
+                    );
+                }
+
+                // TODO: Have a list of Text to Location mappings in the graphics component which tells the
+                //  engine to render all available text to specific locations on the screen; maybe do the same with
+                //  other objects
+                Resource res = e.getComponent(Resource.class);
+                if(res != null) {
+                    renderText(
+                            g,
+                            String.valueOf((int) res.getQuantity()),
+                            gc.getTextColor(),
+                            gc.getFont(),
+                            gc.getBounds().x + 50,
+                            gc.getBounds().y + 50,
+                            gc.getBounds().width,
+                            gc.getBounds().height
+                    );
+                }
+                UnitStack us = e.getComponent(UnitStack.class);
+                if(us != null) {
+                    renderText(
+                            g,
+                            String.valueOf((int) us.getQuantity()),
+                            gc.getTextColor(),
+                            gc.getFont(),
+                            gc.getBounds().x + 100,
+                            gc.getBounds().y + 50,
                             gc.getBounds().width,
                             gc.getBounds().height
                     );

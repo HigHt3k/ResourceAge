@@ -7,10 +7,20 @@ public class UnitStack extends Component {
     private UnitType type;
     private long quantity = 0;
 
+    private UnitStack connectedHousing = null;
+
 
     public UnitStack(String name, UnitType type) {
         this.name = name;
         this.type = type;
+    }
+
+    public void connectToHousing(UnitStack connectedHousing) {
+        this.connectedHousing = connectedHousing;
+    }
+
+    public UnitStack getConnectedHousing() {
+        return connectedHousing;
     }
 
     public String getName() {

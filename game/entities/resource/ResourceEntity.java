@@ -10,6 +10,7 @@ import game.components.Resource;
 import game.components.ResourceType;
 import game.components.UnitStack;
 import game.components.UnitType;
+import game.intents.AddUnitToResIntent;
 
 import java.awt.*;
 
@@ -48,6 +49,11 @@ public class ResourceEntity extends Entity {
         HoverIntent hi = new HoverIntent();
         hi.setIntentComponent(ic);
         ic.addIntent(hi);
+
+        AddUnitToResIntent autri = new AddUnitToResIntent();
+        autri.setIntentComponent(ic);
+        ic.addIntent(autri);
+
         ic.setEntity(this);
         addComponent(ic);
 
